@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CryptoPulse - The ultimate, lightning-fast source for cryptocurrency news, market stats, real-time insights, and advanced tools with Binance-style charts.">
+    <meta name="keywords" content="cryptocurrency, bitcoin, ethereum, binance, solana, ripple, cardano, dogecoin, polkadot, litecoin, chainlink, uniswap, aave, avalanche, polygon, cosmos, crypto news, market data, trading, trends, metrics">
+    <meta name="author" content="CryptoPulse Team">
+    <title>CryptoPulse | Ultimate Cryptocurrency Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1631603090989-93f9ef6f9d80?crop=entropy&cs=tinysrgb&fit=crop&fm=png&h=32&w=32">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d0d0d">
+</head>
+<body>
+    <div class="background-gradient"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://images.unsplash.com/photo-1631603090989-93f9ef6f9d80?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&w=60" alt="CryptoPulse Logo" class="logo-img" loading="lazy">
+            <span class="logo-text">CryptoPulse</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#market">Market</a></li>
+            <li><a href="#trends">Trends</a></li>
+            <li><a href="#metrics">Metrics</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+        <div class="burger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Unleash the Power of Cryptocurrency</h1>
+            <p>The ultimate, lightning-fast source for real-time market updates, crypto news, advanced tools, and insights with Binance-style charts—optimized for perfection.</p>
+            <a href="#market" class="cta-btn">Dive Into Crypto Markets</a>
+        </div>
+    </section>
+
+    <section id="market" class="market-stats">
+        <h2 class="section-title">Ultimate Crypto Market Dashboard</h2>
+        <div class="stats-grid">
+            <div class="crypto-card" data-symbol="btc">
+                <h3>Bitcoin (BTC) <span class="coin-icon">₿</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="bitcoin">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="eth">
+                <h3>Ethereum (ETH) <span class="coin-icon">Ξ</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="ethereum">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="bnb">
+                <h3>Binance Coin (BNB) <span class="coin-icon">BNB</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="binancecoin">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="sol">
+                <h3>Solana (SOL) <span class="coin-icon">SOL</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="solana">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="xrp">
+                <h3>Ripple (XRP) <span class="coin-icon">XRP</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="ripple">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="ada">
+                <h3>Cardano (ADA) <span class="coin-icon">ADA</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="cardano">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="doge">
+                <h3>Dogecoin (DOGE) <span class="coin-icon">DOGE</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="dogecoin">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="dot">
+                <h3>Polkadot (DOT) <span class="coin-icon">DOT</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="polkadot">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="ltc">
+                <h3>Litecoin (LTC) <span class="coin-icon">LTC</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="litecoin">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="link">
+                <h3>Chainlink (LINK) <span class="coin-icon">LINK</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="chainlink">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="uni">
+                <h3>Uniswap (UNI) <span class="coin-icon">UNI</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="uniswap">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="aave">
+                <h3>Aave (AAVE) <span class="coin-icon">AAVE</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="aave">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="avax">
+                <h3>Avalanche (AVAX) <span class="coin-icon">AVAX</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="avalanche-2">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="matic">
+                <h3>Polygon (MATIC) <span class="coin-icon">MATIC</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="matic-network">Set Alert</button>
+            </div>
+            <div class="crypto-card" data-symbol="atom">
+                <h3>Cosmos (ATOM) <span class="coin-icon">ATOM</span></h3>
+                <p class="price">Loading...</p>
+                <p class="market-cap">Cap: Loading...</p>
+                <p class="volume">Vol: Loading...</p>
+                <p class="supply">Supply: Loading...</p>
+                <button class="alert-toggle" data-coin="cosmos">Set Alert</button>
+            </div>
+        </div>
+        <div id="chart-container" class="chart-container">
+            <div id="tradingview-chart"></div>
+        </div>
+    </section>
+
+    <section id="trends" class="market-trends">
+        <h2 class="section-title">Market Trends & Analysis</h2>
+        <div class="trends-grid">
+            <div class="trend-card">
+                <h3>Bitcoin Trends</h3>
+                <p>Upward trend with 5% growth last 24h.</p>
+            </div>
+            <div class="trend-card">
+                <h3>Ethereum Analysis</h3>
+                <p>Stable with potential breakout signals.</p>
+            </div>
+            <div class="trend-card">
+                <h3>Binance Coin Trends</h3>
+                <p>Steady growth with 3% increase last 24h.</p>
+            </div>
+            <div class="trend-card">
+                <h3>Solana Analysis</h3>
+                <p>Volatile with high trading volume.</p>
+            </div>
+            <div class="trend-card">
+                <h3>Ripple Trends</h3>
+                <p>Consistent with 2% growth last 24h.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="token-metrics">
+        <h2 class="section-title">Token Metrics & Insights</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Bitcoin Metrics</h3>
+                <p>Supply: 21M | Staking: None | Deflationary: No</p>
+            </div>
+            <div class="metric-card">
+                <h3>Ethereum Metrics</h3>
+                <p>Supply: Unlimited | Staking: 5% APY | Deflationary: Yes (EIP-1559)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news">
+        <h2 class="section-title">Fast Crypto News</h2>
+        <div class="news-grid" id="news-section" role="region" aria-live="polite">
+            <!-- News articles will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get in Touch—Fast</h2>
+        <form id="contact-form" class="contact-form" aria-label="Contact form">
+            <input type="text" name="name" placeholder="Your Name" required aria-required="true">
+            <input type="email" name="email" placeholder="Your Email" required aria-required="true">
+            <textarea name="message" placeholder="Your Message" required aria-required="true"></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 CryptoPulse. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" class="social-link" aria-label="Twitter">Twitter</a>
+                <a href="#" target="_blank" class="social-link" aria-label="Telegram">Telegram</a>
+                <a href="#" target="_blank" class="social-link" aria-label="Discord">Discord</a>
+            </div>
+            <div class="legal-links">
+                <a href="terms.html" target="_blank" aria-label="Terms of Service">Terms of Service</a>
+                <a href="privacy.html" target="_blank" aria-label="Privacy Policy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91bef6683bdcb00d',t:'MTc0MTIzMzc5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91bf4abf9f3a5084',t:'MTc0MTIzNzI1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91c2fd698c3ec016',t:'MTc0MTI3NjAyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91c3393af909452c',t:'MTc0MTI3ODQ3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
