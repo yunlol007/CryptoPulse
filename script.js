@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch and display latest crypto news
+    // Fetch and display latest crypto news with Adsterra integration
     async function fetchCryptoNews() {
         const newsContainer = document.getElementById("news-section");
         if (!newsContainer) return;
@@ -288,7 +288,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="${link}" target="_blank" class="read-more">Read More</a>
                 `;
 
+                // Add click event to trigger Adsterra popunder for all news cards
                 newsCard.addEventListener("click", () => {
+                    // Dynamically re-append the Adsterra script to trigger it
+                    const adScript = document.createElement('script');
+                    adScript.type = 'text/javascript';
+                    adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+                    document.body.appendChild(adScript);
+                    // Open the news link in a new tab (original behavior)
                     window.open(link, "_blank");
                 });
 
