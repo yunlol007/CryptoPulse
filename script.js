@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const trendCard = document.createElement('div');
                 trendCard.classList.add('trend-card');
                 trendCard.innerHTML = `
-                    <h3>${crypto.name} (${crypto.symbol.toUpperCase()})</h3>
+                    <h1>${crypto.name} (${crypto.symbol.toUpperCase()})</h1>
                     <p>${crypto.price_change_percentage_24h > 0 ? "📈 Up" : "📉 Down"} ${crypto.price_change_percentage_24h.toFixed(2)}% in the last 24 hours.</p>
                 `;
                 trendsContainer.appendChild(trendCard);
@@ -433,15 +433,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Global Adsterra Popunder Trigger (except for Privacy link)
+    // Function to set up Privacy link redirect
+    function setupPrivacyRedirect() {
+        const privacyLinks = document.querySelectorAll('a[href="privacy.html"], a[href="/privacy.html"]');
+        privacyLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default navigation
+                window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank'); // Open custom link
+            });
+        });
+    }
+
+    // Global Adsterra Popunder Trigger (excluding Privacy link)
     document.addEventListener('click', (e) => {
-        const privacyLink = document.getElementById('privacy-link');
-        // Check if the click target is the Privacy link or a child of it
-        if (privacyLink && (e.target === privacyLink || privacyLink.contains(e.target))) {
-            e.preventDefault();
-            // Redirect to the specific link for Privacy clicks
-            window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank');
-        } else {
+        const privacyLinks = document.querySelectorAll('a[href="privacy.html"], a[href="/privacy.html"]');
+        let isPrivacyClick = false;
+        privacyLinks.forEach(link => {
+            if (e.target === link || link.contains(e.target)) {
+                isPrivacyClick = true;
+            }
+        });
+        if (!isPrivacyClick) {
             // Trigger Adsterra popunder for all other clicks
             const adScript = document.createElement('script');
             adScript.type = 'text/javascript';
@@ -449,6 +461,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(adScript);
         }
     });
+
+    // Call setup functions
+    setupPrivacyRedirect();
 
     // Initialization
     const init = () => {
