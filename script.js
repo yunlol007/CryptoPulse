@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch and display latest crypto news with Adsterra integration
+    // Fetch and display latest crypto news (without Adsterra popunder)
     async function fetchCryptoNews() {
         const newsContainer = document.getElementById("news-section");
         if (!newsContainer) return;
@@ -288,14 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="${link}" target="_blank" class="read-more">Read More</a>
                 `;
 
-                // Add click event to trigger Adsterra popunder for all news cards
+                // Removed Adsterra popunder trigger from news cards
                 newsCard.addEventListener("click", () => {
-                    // Dynamically re-append the Adsterra script to trigger it
-                    const adScript = document.createElement('script');
-                    adScript.type = 'text/javascript';
-                    adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-                    document.body.appendChild(adScript);
-                    // Open the news link in a new tab (original behavior)
                     window.open(link, "_blank");
                 });
 
@@ -438,6 +432,23 @@ document.addEventListener("DOMContentLoaded", () => {
             contactForm.reset();
         });
     }
+
+    // Global Adsterra Popunder Trigger (except for Privacy link)
+    document.addEventListener('click', (e) => {
+        const privacyLink = document.getElementById('privacy-link');
+        // Check if the click target is the Privacy link or a child of it
+        if (privacyLink && (e.target === privacyLink || privacyLink.contains(e.target))) {
+            e.preventDefault();
+            // Redirect to the specific link for Privacy clicks
+            window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank');
+        } else {
+            // Trigger Adsterra popunder for all other clicks
+            const adScript = document.createElement('script');
+            adScript.type = 'text/javascript';
+            adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+            document.body.appendChild(adScript);
+        }
+    });
 
     // Initialization
     const init = () => {
