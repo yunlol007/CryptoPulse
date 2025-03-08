@@ -1,29 +1,58 @@
-// Immediate popunder trigger - no waiting for DOM bullshit
+// Immediate bypass attempt - fuck the blockers
 (function() {
-    // Create an invisible link to simulate a "user action"
-    const sneakyLink = document.createElement('a');
-    sneakyLink.href = 'https://cryptopls.github.io/';
-    sneakyLink.target = '_blank';
-    sneakyLink.style.display = 'none';
-    document.body.appendChild(sneakyLink);
+    // Step 1: Fake a user click to trick the browser
+    const fakeClick = () => {
+        const event = new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        document.body.dispatchEvent(event);
+    };
 
-    // Trigger the "click" to open your site in a new tab
-    const newTab = sneakyLink.click() || window.open('https://cryptopls.github.io/', '_blank');
-    if (newTab) {
-        newTab.focus(); // Try to bring it forward
-    }
+    // Step 2: Iframe to sandbox Adsterra and dodge restrictions
+    const triggerPopunder = () => {
+        // Create an iframe for Adsterra
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none'; // Hide that shit
+        iframe.width = '1';
+        iframe.height = '1';
+        document.body.appendChild(iframe);
 
-    // Slam in the Adsterra popunder script
-    const adScript = document.createElement('script');
-    adScript.type = 'text/javascript';
-    adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-    document.body.appendChild(adScript);
+        // Write the Adsterra script into the iframe
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(`
+            <script type="text/javascript">
+                window.top.location = "https://cryptopls.github.io/"; // Push back to your site in the top window
+            </script>
+            <script type="text/javascript" src="//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js"></script>
+        `);
+        iframeDoc.close();
 
-    // Push the original window under
-    window.blur();
+        // Try opening your site in a new tab too
+        const newTab = window.open('https://cryptopls.github.io/', '_blank');
+        if (newTab) {
+            newTab.focus();
+        } else {
+            // Fallback: Redirect top window if pop-up fails
+            setTimeout(() => {
+                if (window.location.href !== 'https://cryptopls.github.io/') {
+                    window.location.href = 'https://cryptopls.github.io/';
+                }
+            }, 500);
+        }
+
+        // Blur the original window to push it under
+        window.blur();
+    };
+
+    // Fire the fake click and popunder ASAP
+    fakeClick();
+    triggerPopunder();
 })();
 
-// Rest of your existing code - runs after the popunder
+// Rest of your existing code - untouched, runs after the bypass
 document.addEventListener("DOMContentLoaded", () => {
     const burger = document.querySelector(".burger");
     const navLinks = document.querySelector(".nav-links");
