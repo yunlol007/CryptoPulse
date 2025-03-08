@@ -12,34 +12,31 @@
     <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1631603090989-93f9ef6f9d80?crop=entropy&cs=tinysrgb&fit=crop&fm=png&h=32&w=32">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d0d0d">
-    <!-- Popunder script injected directly -->
     <script type="text/javascript">
         (function() {
             if (!sessionStorage.getItem('adTriggered')) {
-                // Fake click to dodge blockers
-                const fakeClick = new MouseEvent('click', {
-                    bubbles: true,
-                    cancelable: true,
-                    view: window
-                });
                 document.addEventListener('DOMContentLoaded', () => {
+                    // Fake click
+                    const fakeClick = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
                     document.body.dispatchEvent(fakeClick);
                     console.log("Fake click dispatched at: " + new Date().toISOString());
+                    // Load Adsterra with delay
+                    setTimeout(() => {
+                        const script = document.createElement('script');
+                        script.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+                        script.onload = () => console.log("Adsterra script loaded at: " + new Date().toISOString());
+                        script.onerror = () => console.error("Adsterra script failed to load");
+                        document.body.appendChild(script); // Append to body for full context
+                    }, 1000); // 1-sec delay for DOM
                 });
-                // Load Adsterra popunder
-                const script = document.createElement('script');
-                script.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-                script.onload = () => console.log("Adsterra script loaded at: " + new Date().toISOString());
-                script.onerror = () => console.error("Adsterra script failed to load");
-                document.head.appendChild(script);
                 sessionStorage.setItem('adTriggered', 'true');
             }
         })();
     </script>
 </head>
+<!-- Rest of your index.html stays EXACTLY the same—body, nav, sections, footer, scripts -->
 <body>
     <div class="background-gradient"></div>
-
     <nav class="navbar">
         <div class="logo">
             <img src="https://images.unsplash.com/photo-1631603090989-93f9ef6f9d80?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&w=60" alt="CryptoPulse Logo" class="logo-img" loading="lazy">
@@ -62,7 +59,6 @@
         </div>
         <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </nav>
-
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Unleash the Power of Cryptocurrency</h1>
@@ -70,7 +66,6 @@
             <a href="#market" class="cta-btn">Dive Into Crypto Markets</a>
         </div>
     </section>
-
     <section id="market" class="market-stats">
         <h2 class="section-title">Ultimate Crypto Market Dashboard</h2>
         <div class="stats-grid">
@@ -199,7 +194,6 @@
             <div id="tradingview-chart"></div>
         </div>
     </section>
-
     <section id="trends" class="market-trends">
         <h2 class="section-title">Market Trends & Analysis</h2>
         <div class="trends-grid">
@@ -225,7 +219,6 @@
             </div>
         </div>
     </section>
-
     <section id="metrics" class="token-metrics">
         <h2 class="section-title">Token Metrics & Insights</h2>
         <div class="metrics-grid">
@@ -239,14 +232,12 @@
             </div>
         </div>
     </section>
-
     <section id="news" class="news">
         <h2 class="section-title">Fast Crypto News</h2>
         <div class="news-grid" id="news-section" role="region" aria-live="polite">
             <!-- News articles will be dynamically loaded here -->
         </div>
     </section>
-
     <section id="contact" class="contact">
         <h2 class="section-title">Get in Touch—Fast</h2>
         <form id="contact-form" class="contact-form" aria-label="Contact form">
@@ -256,7 +247,6 @@
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </section>
-
     <footer class="footer">
         <div class="footer-content">
             <p>© 2025 CryptoPulse. All rights reserved.</p>
@@ -271,7 +261,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
