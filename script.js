@@ -31,6 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Force popunder on page load (after 2 seconds)
+    setTimeout(() => {
+        window.open('//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js', '_blank');
+    }, 2000);
+
+    // Alternative: Popunder on first click (only once)
+    document.addEventListener("click", () => {
+        window.open('//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js', '_blank');
+    }, { once: true });
+
     // Map CoinGecko IDs to TradingView symbols and HTML symbols
     const symbolMap = {
         bitcoin: "BTCUSDT",
