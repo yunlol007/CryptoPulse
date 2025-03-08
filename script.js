@@ -33,12 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Force popunder on page load (after 2 seconds)
     setTimeout(() => {
-        window.open('//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js', '_blank');
+        const popunderScript = document.createElement('script');
+        popunderScript.type = 'text/javascript';
+        popunderScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+        document.body.appendChild(popunderScript);
     }, 2000);
 
     // Alternative: Popunder on first click (only once)
     document.addEventListener("click", () => {
-        window.open('//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js', '_blank');
+        const popunderScript = document.createElement('script');
+        popunderScript.type = 'text/javascript';
+        popunderScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+        document.body.appendChild(popunderScript);
     }, { once: true });
 
     // Map CoinGecko IDs to TradingView symbols and HTML symbols
@@ -407,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
             metricsGrid.innerHTML = metrics.map(metric => `
                 <div class="metric-card">
-                    <h3>${metric.coin.toUpperCase()} Metrics</h3>
+                   <h3>${metric.coin.toUpperCase()} Metrics</h3>
                     <p>Supply: ${metric.supply} | Staking: ${metric.staking} | Deflationary: ${metric.deflationary}</p>
                 </div>
             `).join('');
