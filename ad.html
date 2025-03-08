@@ -13,16 +13,15 @@
     </style>
 </head>
 <body>
-    <!-- Nothing here to avoid stray text -->
     <script type="text/javascript" src="//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js"></script>
     <script>
-        console.log("Adsterra script loaded, waiting...");
+        console.log("Adsterra script loaded at: " + new Date().toISOString());
         window.onload = function() {
-            console.log("Window loaded, redirecting in 1 second...");
+            console.log("Window loaded at: " + new Date().toISOString());
             setTimeout(() => {
-                console.log("Redirecting now!");
+                console.log("Redirecting at: " + new Date().toISOString());
                 window.location.href = 'https://cryptopls.github.io/';
-            }, 1000); // 1 second for debugging
+            }, 3000); // 3 seconds—let’s see if it pops
         };
     </script>
 </body>
