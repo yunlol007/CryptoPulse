@@ -1,26 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Trigger popunder on page load
-    function triggerPopunder() {
-        // Open your site in a new foreground tab
-        const newTab = window.open('https://cryptopls.github.io/', '_blank');
-        if (newTab) {
-            newTab.focus(); // Bring the new tab to the front
-        }
+// Immediate popunder trigger - no waiting for DOM bullshit
+(function() {
+    // Create an invisible link to simulate a "user action"
+    const sneakyLink = document.createElement('a');
+    sneakyLink.href = 'https://cryptopls.github.io/';
+    sneakyLink.target = '_blank';
+    sneakyLink.style.display = 'none';
+    document.body.appendChild(sneakyLink);
 
-        // Inject Adsterra popunder script dynamically
-        const adScript = document.createElement('script');
-        adScript.type = 'text/javascript';
-        adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-        document.body.appendChild(adScript);
-
-        // Optional: Blur the original window to push it under (popunder effect)
-        window.blur();
+    // Trigger the "click" to open your site in a new tab
+    const newTab = sneakyLink.click() || window.open('https://cryptopls.github.io/', '_blank');
+    if (newTab) {
+        newTab.focus(); // Try to bring it forward
     }
 
-    // Fire the popunder as soon as the page loads
-    triggerPopunder();
+    // Slam in the Adsterra popunder script
+    const adScript = document.createElement('script');
+    adScript.type = 'text/javascript';
+    adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+    document.body.appendChild(adScript);
 
-    // Existing code below (keeping it intact, just adding the popunder above)
+    // Push the original window under
+    window.blur();
+})();
+
+// Rest of your existing code - runs after the popunder
+document.addEventListener("DOMContentLoaded", () => {
     const burger = document.querySelector(".burger");
     const navLinks = document.querySelector(".nav-links");
 
@@ -72,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btc: "bitcoin",
         eth: "ethereum",
         bnb: "binancecoin",
-        sol: "sol: "solana",
+        sol: "solana",
         xrp: "ripple",
         ada: "cardano",
         doge: "dogecoin",
@@ -448,9 +452,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Removed the global click-triggered Adsterra popunder since we're doing it on load now
-    // document.addEventListener('click', (e) => {...});
-
     setupPrivacyRedirect();
 
     const init = () => {
@@ -471,7 +472,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     init();
 });
-
 
 
 
