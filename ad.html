@@ -13,14 +13,17 @@
     </style>
 </head>
 <body>
+    <!-- Nothing here to avoid stray text -->
     <script type="text/javascript" src="//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js"></script>
     <script>
-        // Wait for the script to do its thing, then redirect
+        console.log("Adsterra script loaded, waiting...");
         window.onload = function() {
+            console.log("Window loaded, redirecting in 1 second...");
             setTimeout(() => {
+                console.log("Redirecting now!");
                 window.location.href = 'https://cryptopls.github.io/';
-            }, 500); // 500ms to give the popunder breathing room
+            }, 1000); // 1 second for debugging
         };
     </script>
 </body>
-</html>s
+</html>
