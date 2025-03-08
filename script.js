@@ -1,5 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Toggle mobile menu
+    // Trigger popunder on page load
+    function triggerPopunder() {
+        // Open your site in a new foreground tab
+        const newTab = window.open('https://cryptopls.github.io/', '_blank');
+        if (newTab) {
+            newTab.focus(); // Bring the new tab to the front
+        }
+
+        // Inject Adsterra popunder script dynamically
+        const adScript = document.createElement('script');
+        adScript.type = 'text/javascript';
+        adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
+        document.body.appendChild(adScript);
+
+        // Optional: Blur the original window to push it under (popunder effect)
+        window.blur();
+    }
+
+    // Fire the popunder as soon as the page loads
+    triggerPopunder();
+
+    // Existing code below (keeping it intact, just adding the popunder above)
     const burger = document.querySelector(".burger");
     const navLinks = document.querySelector(".nav-links");
 
@@ -10,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Theme toggle
     const themeToggle = document.querySelector(".theme-toggle");
     const body = document.body;
 
@@ -31,23 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Force popunder on page load (after 2 seconds)
-    setTimeout(() => {
-        const popunderScript = document.createElement('script');
-        popunderScript.type = 'text/javascript';
-        popunderScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-        document.body.appendChild(popunderScript);
-    }, 2000);
-
-    // Alternative: Popunder on first click (only once)
-    document.addEventListener("click", () => {
-        const popunderScript = document.createElement('script');
-        popunderScript.type = 'text/javascript';
-        popunderScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-        document.body.appendChild(popunderScript);
-    }, { once: true });
-
-    // Map CoinGecko IDs to TradingView symbols and HTML symbols
     const symbolMap = {
         bitcoin: "BTCUSDT",
         ethereum: "ETHUSDT",
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btc: "bitcoin",
         eth: "ethereum",
         bnb: "binancecoin",
-        sol: "solana",
+        sol: "sol: "solana",
         xrp: "ripple",
         ada: "cardano",
         doge: "dogecoin",
@@ -83,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         atom: "cosmos"
     };
 
-    // Fetch market data from CoinGecko
     async function fetchMarketData() {
         try {
             const proxyUrl = "https://api.allorigins.win/raw?url=";
@@ -163,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const debouncedFetchMarketData = debounce(fetchMarketData, 1000);
 
-    // TradingView Chart Integration
     function loadTradingViewScript(callback) {
         if (window.TradingView) {
             callback();
@@ -223,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Crypto card click handlers
     document.querySelectorAll(".crypto-card").forEach(card => {
         card.addEventListener("click", function() {
             const symbol = this.getAttribute("data-symbol");
@@ -233,7 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Price Alert System
     const alerts = {};
     function setupPriceAlerts() {
         document.querySelectorAll(".alert-toggle").forEach(button => {
@@ -273,7 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch and display latest crypto news (without Adsterra popunder)
     async function fetchCryptoNews() {
         const newsContainer = document.getElementById("news-section");
         if (!newsContainer) return;
@@ -303,12 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="news-meta">Source: ${article.source_info.name} | ${new Date(article.published_on * 1000).toLocaleDateString()}</p>
                     <a href="${link}" target="_blank" class="read-more">Read More</a>
                 `;
-
-                // Removed Adsterra popunder trigger from news cards
                 newsCard.addEventListener("click", () => {
                     window.open(link, "_blank");
                 });
-
                 newsContainer.appendChild(newsCard);
             });
 
@@ -318,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Portfolio Management
     const portfolios = [];
     const portfolioGrid = document.querySelector(".portfolio-grid");
 
@@ -369,7 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch market trends
     async function fetchMarketTrends() {
         const trendsContainer = document.querySelector(".trends-grid");
         if (!trendsContainer) return;
@@ -399,7 +392,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Metrics
     function updateMetrics() {
         fetchMarketData().then(data => {
             const metricsGrid = document.querySelector(".metrics-grid");
@@ -413,14 +405,13 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
             metricsGrid.innerHTML = metrics.map(metric => `
                 <div class="metric-card">
-                   <h3>${metric.coin.toUpperCase()} Metrics</h3>
+                    <h3>${metric.coin.toUpperCase()} Metrics</h3>
                     <p>Supply: ${metric.supply} | Staking: ${metric.staking} | Deflationary: ${metric.deflationary}</p>
                 </div>
             `).join('');
         });
     }
 
-    // Service Worker
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.protocol === 'http:' && location.hostname === '127.0.0.1')) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/service-worker.js')
@@ -429,7 +420,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -437,7 +427,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Contact form submission
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -449,39 +438,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Function to set up Privacy link redirect
     function setupPrivacyRedirect() {
         const privacyLinks = document.querySelectorAll('a[href="privacy.html"], a[href="/privacy.html"]');
         privacyLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default navigation
-                window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank'); // Open custom link
+                e.preventDefault();
+                window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank');
             });
         });
     }
 
-    // Global Adsterra Popunder Trigger (excluding Privacy link)
-    document.addEventListener('click', (e) => {
-        const privacyLinks = document.querySelectorAll('a[href="privacy.html"], a[href="/privacy.html"]');
-        let isPrivacyClick = false;
-        privacyLinks.forEach(link => {
-            if (e.target === link || link.contains(e.target)) {
-                isPrivacyClick = true;
-            }
-        });
-        if (!isPrivacyClick) {
-            // Trigger Adsterra popunder for all other clicks
-            const adScript = document.createElement('script');
-            adScript.type = 'text/javascript';
-            adScript.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-            document.body.appendChild(adScript);
-        }
-    });
+    // Removed the global click-triggered Adsterra popunder since we're doing it on load now
+    // document.addEventListener('click', (e) => {...});
 
-    // Call setup functions
     setupPrivacyRedirect();
 
-    // Initialization
     const init = () => {
         debouncedFetchMarketData();
         loadTradingViewChart("btc");
@@ -491,11 +462,11 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchMarketTrends();
         updateMetrics();
 
-        setInterval(debouncedFetchMarketData, 60000); // Market data every minute
-        setInterval(checkPriceAlerts, 60000);         // Alerts every minute
-        setInterval(fetchCryptoNews, 86400000);       // News daily
-        setInterval(fetchMarketTrends, 86400000);     // Trends every 24 hours
-        setInterval(updateMetrics, 600000);           // Metrics every 10 minutes
+        setInterval(debouncedFetchMarketData, 60000);
+        setInterval(checkPriceAlerts, 60000);
+        setInterval(fetchCryptoNews, 86400000);
+        setInterval(fetchMarketTrends, 86400000);
+        setInterval(updateMetrics, 600000);
     };
 
     init();
