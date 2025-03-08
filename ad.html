@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Redirecting...</title>
+    <style>
+        body {
+            background: #0d0d0d;
+            margin: 0;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <script type="text/javascript" src="//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js"></script>
     <script>
-        setTimeout(() => {
-            window.location.href = 'https://cryptopls.github.io/';
-        }, 100);
+        // Wait for the script to do its thing, then redirect
+        window.onload = function() {
+            setTimeout(() => {
+                window.location.href = 'https://cryptopls.github.io/';
+            }, 500); // 500ms to give the popunder breathing room
+        };
     </script>
 </body>
-</html>
+</html>s
