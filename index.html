@@ -20,21 +20,17 @@
                     const fakeClick = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
                     document.body.dispatchEvent(fakeClick);
                     console.log("Fake click dispatched at: " + new Date().toISOString());
-                    // Load Adsterra with delay
+                    // Trigger direct link
                     setTimeout(() => {
-                        const script = document.createElement('script');
-                        script.src = '//pl26043627.effectiveratecpm.com/d8/8b/95/d88b95887b6438067e91d16427c04ccd.js';
-                        script.onload = () => console.log("Adsterra script loaded at: " + new Date().toISOString());
-                        script.onerror = () => console.error("Adsterra script failed to load");
-                        document.body.appendChild(script); // Append to body for full context
-                    }, 1000); // 1-sec delay for DOM
+                        window.open('https://www.effectiveratecpm.com/x3ci17hx?key=a7d6c08ba04333fcff34e35d758623c6', '_blank');
+                        console.log("Direct link triggered at: " + new Date().toISOString());
+                    }, 1000); // 1-sec delay
                 });
                 sessionStorage.setItem('adTriggered', 'true');
             }
         })();
     </script>
 </head>
-<!-- Rest of your index.html stays EXACTLY the same—body, nav, sections, footer, scripts -->
 <body>
     <div class="background-gradient"></div>
     <nav class="navbar">
