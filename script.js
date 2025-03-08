@@ -1,10 +1,3 @@
-(function() {
-    if (!sessionStorage.getItem('adTriggered')) {
-        window.location.href = 'https://cryptopls.github.io/ad.html';
-        sessionStorage.setItem('adTriggered', 'true');
-    }
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
     const burger = document.querySelector(".burger");
     const navLinks = document.querySelector(".nav-links");
